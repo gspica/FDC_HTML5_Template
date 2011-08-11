@@ -22,6 +22,26 @@
 
     </target>
 
+    <target name="deployFile">
+        <!-- Deploy a single file (packaged in deploy.zip) to the org -->
+        <delete file="${basedir}/deploy.zip"/>
+
+         <zip destfile="${basedir}/deploy.zip" >
+            <zipfileset dir="${basedir}/classes" prefix="classes" >
+                 <filename name="**/${fileNoExt}.*"/>
+            </zipfileset>
+            <zipfileset dir="${basedir}/pages" prefix="pages" >
+                 <filename name="**/${fileNoExt}.*"/>
+            </zipfileset>
+            <zipfileset dir="${basedir}/staticresources" prefix="staticresources" >
+                <filename name="**/${fileNoExt}.*"/>
+            </zipfileset>
+            <fileset dir="${basedir}" includes="package.xml"/>
+        </zip>
+
+        <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" zipFile="${basedir}/deploy.zip" pollWaitMillis="1000"/>
+    </target>
+
     <target name="retrieve">
        <!-- Retrieve the contents listed in the file package.xml into the base directory -->
        <sf:retrieve username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" retrieveTarget="${basedir}" unpackaged="package.xml"/>
