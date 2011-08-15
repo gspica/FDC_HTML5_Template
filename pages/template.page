@@ -4,11 +4,17 @@
     contentType="text/html" cache="true"><apex:outputText escape="false" value="{!"<!DOCTYPE html>"}"/>
 <html>
     <head>
-        <title>HTML5 Template</title>
 
-        <meta charset="UTF-8" />
+        <meta charset="utf-8" />
+
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>HTML5 Template</title>
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
 
         <apex:stylesheet value="{!URLFOR($Resource.Reset)}" />
         <apex:includeScript value="{!URLFOR($Resource.Modernizr)}" />
@@ -38,7 +44,7 @@
 
         <!-- comment out if you don't want jQuery. But really? -->
         <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" />
-        <apex:includeScript value="{!URLFOR($Resource.plugins)}" />
+        <apex:includeScript value="{!URLFOR($Resource.JavascriptPlugins)}" />
         <script>
 
             var __sfdcSessionId = '{!GETSESSIONID()}'; 
@@ -63,6 +69,7 @@
                 }
             });
         </script>
+
     </body>
 </html>
 </apex:page>
